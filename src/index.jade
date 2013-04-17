@@ -12,13 +12,13 @@ mixin xsltheader
     head
         meta(charset='utf-8')/
         meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')/
-    title Buildbot
-    meta(name='description', content='Buildbot web UI')/
+    title manifest visualization
+    meta(name='description', content='repo manifest visualization')/
     meta(name='viewport', content='width=device-width')/
 
     case self.environment || 'prod'
       when 'prod'
-         link(rel='stylesheet', href='styles/styles.min.css?_#{(new Date()).getTime()}')
+        include ../temp/styles/styles.html
       default
          link(rel='stylesheet', href='styles/styles.css')
          //- automatic reload support. in "grunt dev" mode, page reload automatically
@@ -28,10 +28,10 @@ mixin xsltheader
 
     body.ng-cloak(ng-cloak='ng-cloak')
       div(ng-controller="xmlController")
-        div(ng-grid="gridOptions")
+        div(style="height:800;",ng-grid="gridOptions")
 
     case self.environment || 'prod'
       when 'prod'
-         script(src="scripts/scripts.min.js")
+        include ../temp/scripts/scripts.html
       default
          script(data-main='scripts/main.js',src="scripts/libs/require.js")

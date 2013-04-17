@@ -1,12 +1,12 @@
 {
-	"name": "angular-www",
+	"name": "angular-xslt",
 	"version": "0.1.0",
 	"author": {
 		"name": "Pierre Tardy",
 		"email": "tardyp@gmail.com",
 		"url": "https://github.com/tardyp"
 	},
-	"description": "AngularJS web interface for buildbot",
+	"description": "AngularJS xslt framework",
 	"contributors": [
 	    {
 		"name": "David Bochenski",
@@ -21,7 +21,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tardyp/angular-www.git"
+		"url": "https://github.com/tardyp/angular-xslt.git"
 	},
 	"dependencies": {
 		"grunt": "~0.3.17",

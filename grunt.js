@@ -164,6 +164,34 @@ module.exports = function (grunt) {
                 trim: 'temp/'
             }
         },
+        inlineTag: {
+            scripts: {
+                files: {
+                    './temp/scripts/scripts.html': './temp/scripts/scripts.min.js'
+                },
+                type: 'text/javascript',
+                trim: 'temp/',
+                tag: 'script'
+            },
+            styles: {
+                files: {
+                    './temp/styles/styles.html': './temp/styles/styles.min.css'
+                },
+                type: 'text/css',
+                trim: 'temp/',
+                tag: 'style'
+            },
+            fakes: { /* jade include file even if it is protected by when 'prod' */
+                files: {
+                    './temp/scripts/scripts.html': './temp/scripts/*.js',
+                    './temp/styles/styles.html': './temp/scripts/*.js'
+                },
+                type: 'text/javascript',
+                trim: 'temp/',
+                tag: 'script'
+            },
+
+        },
 
         // Copies directories and files from one location to another.
         copy: {
@@ -197,7 +225,7 @@ module.exports = function (grunt) {
                     './built/scripts/': './temp/scripts/scripts.min.js',
                     './built/scripts/libs': ['./temp/scripts/libs/html5shiv-printshiv.js', './temp/scripts/libs/json2.js'],
                     './built/styles/': './temp/styles/styles.min.css',
-                    './built/template.xsl': './temp/template.xsl',
+                    './built/template.xsl': './temp/index.html',
                     './built/test.xml': './test.xml'
                 }
             },
@@ -330,6 +358,7 @@ module.exports = function (grunt) {
     */
     grunt.loadNpmTasks('grunt-hustler');
     grunt.loadNpmTasks('grunt-jade');
+    grunt.loadTasks('tasks');
 
     /*
         Register grunt tasks supplied by grunt-reload.
@@ -360,7 +389,7 @@ module.exports = function (grunt) {
         'less',
         'template:views',
         'jade:views',
-        'inlineTemplate',
+        'inlineTag:fakes',
         'jade:dev',
         'copy:temp',
         'copy:dev'
@@ -389,9 +418,10 @@ module.exports = function (grunt) {
         'less',
         'template:views',
         'jade:views',
-        'inlineTemplate',
         'copy:temp',
         'requirejs',
+        'inlineTag:scripts',
+        'inlineTag:styles',
         'jade:prod',
         'minifyHtml',
         'copy:prod',

@@ -1,16 +1,33 @@
-# angular-www
-buildbot web ui built with coffeescript and angularjs
-nodejs ecosystem is widely used to build the app: coffeescript, requirejs, less, grunt, jade templates
-the app needs to built before running, but there are tools to build the app upon file change (grunt dev)
+# angular-xslt
+
+angular-xslt is a set of build tools to create xslt with angularjs framework
+
+xslt is for me very obscure and difficult to develop with.
+The browser's debugger are not very useful, and doing anything dynamic is very hacky,
+involving making xslt transform inside javascript.
+
+So the idea of this is to just replace xslt langage by angular.js
+the xslt is just a boilerplate to convince browser its a xslt, but the angular is loading,
+parsing the XML in browser, transforming it to browser, and display it using regular
+angularjs MVVM templating
 
 See rest of the readme for original explainations from AngularFun
 Compared to angularfun, we:
 
 * drop the original nodejs server code
-* change build directory to "built" instead of "dist" which is already used by python setuptools.
+* change build directory to "built" instead of "dist"
 * use jade as a template's syntax sugar
+* completly inline the javascript, and css inside the xslt, so that we only have one file
 
-See doc at ../master/docs
+The result is an enormous xslt (363kB), but then you have the power of angularjs and
+classic browser development
+
+The example here is a template parsing gerrit/repo manifest xml style and display the list
+of projects, with groups and annotations
+
+For simple stuff, the two files to modify are:
+* xmlController.coffee: parse the xml, and configure the $scope
+* index.jade: the html template
 
 based on:
 # AngularFun

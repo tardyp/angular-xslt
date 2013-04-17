@@ -1,20 +1,9 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="template.xsl"?>
-<catalog>
-  <cd>
-    <title>Empire Burlesque</title>
-    <artist>Bob Dylan</artist>
-    <country>USA</country>
-    <company>Columbia</company>
-    <price>10.90</price>
-    <year>1985</year>
-  </cd>
-  <cd>
-    <title>2Empire Burlesque</title>
-    <artist>Bob Dylan</artist>
-    <country>USA</country>
-    <company>Columbia</company>
-    <price>10.90</price>
-    <year>1985</year>
-  </cd>
-</catalog>
+<manifest>
+  <project groups="aosp,name:a/aosp/device/common,path:device/common" name="a/aosp/device/common" path="device/common" revision="main"/>
+  <project groups="bsp-priv,name:a/hardware/intel/PRIVATE/platform_test,path:hardware/intel/PRIVATE/platform_test" name="a/hardware/intel/PRIVATE/platform_test" path="hardware/intel/PRIVATE/platform_test" revision="main">
+    <annotation name="t_external" value="no"/>
+    <annotation name="g_external" value="src"/>
+  </project>
+</manifest>
