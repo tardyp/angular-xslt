@@ -6,6 +6,7 @@ window.jslibs_versions = {
     "html5shiv-printshiv.js": "v3.6.2",
     "jquery.min.js": "v@1.8.0",
     "require.js" :"2.1.2",
-    "jquery.xml2json.js":"1.0"
+    "jquery.xml2json.js":"1.0",
+    "lodash.js":"1.2.0"
 };
 })(window);
